@@ -9,7 +9,7 @@ It is built with Ruby. The distribution model is to be decided and the tool is s
 `gem install edlcli`
 
 ### Getting Started
-You will be asked to enter your EDL credentials the first time you run a command; after the first time, credentials will be saved to ~/.edlcli for future use. 
+You will be asked to enter your EDL credentials the first time you run a command; after the first time, credentials will be saved to ~/.edlcli for future use.
 It’s generally a good idea to login and add your credentials immediately after installing edlcli so that you can use it.
 
 ```
@@ -19,19 +19,19 @@ edl_url: https://example.eagle-core.com/
 client_id: *****************
 secret: *****************
 Thank you
-```  
+```
 You are now ready to execute your first command
 
 #### List Datapackages
-`edlcli list`  
+`edlcli list`
 to list all available datapackages
 
 #### Download Datapackages
-`edcli download PACKAGE_ID`  
+`edcli download PACKAGE_ID`
 to dowload a specific package
 
 #### Upload Datapackages
-`edcli upload PACKAGE`  
+`edcli upload PACKAGE`
 this command only accepts `.zip` or `.json` files according to the datapackage standard.
 
 
