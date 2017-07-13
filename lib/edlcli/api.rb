@@ -19,14 +19,13 @@ module EdlCli
     end
 
     def upload(package, format)
-      file = File.open(package, 'r')
       case format
       when '.zip'
         content_type = 'application/zip'
-        payload = file
+        payload = File.open(package, 'r')
       when '.json'
         content_type = :json
-        payload = JSON.parse(file)
+        payload = File.read(package)
       else
         raise 'invalid file format'
       end
