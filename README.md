@@ -3,12 +3,29 @@ The Eagle data layer Command Line Interface (CLI) is a tool for interacting with
 
 It is built with Ruby. The distribution model is to be decided and the tool is still very much a work in progress
 
-### Download and install
-#### macOS / Linux
+### Testing
 
-`gem install edlcli`
+#### prerequisites
+- ruby 2.4.1
+- bundler gem
+- git
 
-### Getting Started
+#### Steps
+
+##### clone this repository and enter directory
+```
+git clone git@github.com:EagleGenomics/data-layer-cli.git`
+cd data-layer-cli
+```
+
+##### install dependencies, build and install gem
+```
+bundler install
+gem build edlcli.gemspec
+gem install edlcli-1.0.0.gem
+```
+
+### Usage
 You will be asked to enter your EDL credentials the first time you run a command; after the first time, credentials will be saved to ~/.edlcli for future use.
 It’s generally a good idea to login and add your credentials immediately after installing edlcli so that you can use it.
 
@@ -27,11 +44,9 @@ You are now ready to execute your first command
 to list all available datapackages
 
 #### Download Datapackages
-`edcli download PACKAGE_ID`
+`edcli download PACKAGE_URL DOWNLOAD_DIR`
 to dowload a specific package
 
-#### Upload Datapackages
-`edcli upload PACKAGE`
+#### Upload Datapackages [WIP]
+`edcli upload PACKAGE_PATH`
 this command only accepts `.zip` or `.json` files according to the datapackage standard.
-
-
