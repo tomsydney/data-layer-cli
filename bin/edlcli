@@ -64,13 +64,13 @@ command :download do |c|
     config = EdlCli::Config.load(options.profile)
     client = EdlCli::Client.new(config)
     api = EdlCli::Api.new(client)
-    save_dir = args[1].empty? ? './' : args[1]
+    save_dir = args[1].nil? ? './' : args[1]
     if File.directory?(save_dir)
       response = api.download(args[0])
       filename = URI.parse(args[0]).path.split('/').last
       filepath = File.join(save_dir, "#{filename}.zip")
       File.write(filepath, response.to_s)
-      puts "Done"
+      puts "Done. Package saved to #{filepath}.zip"
     else
       puts "ERROR: save directory could not be found"
     end
@@ -84,7 +84,16 @@ command :upload do |c|
   c.example 'custom profile usage', 'edlcli upload DATAPACKAGE -p NAME'
   c.action do |args, options|
     handle_global_options(options)
-    puts "TODO"
+    config = EdlCli::Config.load(options.profile)
+    client = EdlCli::Client.new(config)
+    api = EdlCli::Api.new(client)
+    if File.exist?(args[0])
+      response = api.upload(args[0],File.extname(args[0]))
+      package_uri = JSON.parse(response.body).fetch("resource")
+      puts "Done. Package uploaded to #{package_uri}"
+    else
+      puts "ERROR: datapackage could not be found"
+    end
   end
 end
 

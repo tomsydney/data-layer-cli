@@ -14,33 +14,26 @@ module EdlCli
     end
 
     def download(package_url)
+      # we expect to have the fully qualified URL here.
       @client.request(:get, package_url)
     end
 
-    def upload(package)
-      if !File.exist?(package)
-        puts "File #{package} could not be found"
+    def upload(package, format)
+      file = File.open(package, 'r')
+      case format
+      when '.zip'
+        content_type = 'application/zip'
+        payload = file
+      when '.json'
+        content_type = :json
+        payload = JSON.parse(file)
       else
-        case File.extname(package)
-        when '.zip'
-          upload_zip(package)
-        when '.json'
-          upload_json(package)
-        else
-          puts "Only .zip and .json are valid formats"
-        end
+        raise 'invalid file format'
       end
+      @client.request(:post, '/data-packages', payload, content_type)
     end
 
     private
-
-    def upload_zip(package)
-      raise "work in progress"
-    end
-
-    def upload_json(package)
-      raise "work in progresss"
-    end
 
     def call(action, path, payload = {})
       JSON.parse(

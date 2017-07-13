@@ -15,12 +15,12 @@ module EdlCli
       @token.empty?
     end
 
-    def request(action, path, payload = {})
+    def request(action, path, payload = {}, content_type = :json)
       case action
       when :get
         get(path)
       when :post
-        post(path, payload)
+        post(path, payload, content_type)
       else
         raise "unsupported http action"
       end
@@ -41,8 +41,8 @@ module EdlCli
       RestClient.get(@uri.merge(path).to_s, headers)
     end
 
-    def post(path, payload)
-      puts "WORK IN PROGRESS"
+    def post(path, payload, content_type)
+      RestClient.post(@uri.merge(path).to_s, payload, headers(content_type))
     end
 
     def new_auth0_token
