@@ -28,7 +28,13 @@ command :configure do |c|
   c.example 'custom profile usage', 'edlcli configure -p NAME'
   c.action do |args, options|
     handle_global_options(options)
-    puts "TODO"
+    conf = Hash.new
+    conf[:name]   = options.profile
+    conf[:url]    = ask("edl_client_url: ")
+    conf[:id]     = ask("edl_client_id: ")
+    conf[:secret] = ask("edl_client_secret: ")
+    EdlCli::Config.with(conf).save
+    say "Thanks, done"
   end
 end
 

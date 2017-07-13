@@ -3,6 +3,7 @@ PATH
   specs:
     edlcli (1.0.0)
       commander
+      values
 
 GEM
   remote: https://rubygems.org/
@@ -25,6 +26,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    values (1.8.0)
 
 PLATFORMS
   ruby

@@ -18,4 +18,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = Dir["spec/**/*"]
   # cli tooling
   gem.add_dependency 'commander'
+  # immutable config
+  gem.add_dependency 'values'
 end
