@@ -14,7 +14,7 @@ module EdlCli
     end
 
     def download(package_url)
-      raise "work in progress"
+      @client.request(:get, package_url)
     end
 
     def upload(package)

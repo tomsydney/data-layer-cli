@@ -55,13 +55,25 @@ command :list do |c|
 end
 
 command :download do |c|
-  c.syntax  = 'edlcli download DATAPACKAGE_ID [options]'
+  c.syntax  = 'edlcli download DATAPACKAGE_URL [options]'
   c.summary = 'Download a datapackage from an EDL instance'
-  c.example 'default usage', 'edlcli download DATAPACKAGE_ID'
-  c.example 'custom profile usage', 'edlcli download DATAPACKAGE_ID -p NAME'
+  c.example 'default usage', 'edlcli download DATAPACKAGE_URL'
+  c.example 'custom profile usage', 'edlcli download DATAPACKAGE_URL -p NAME'
   c.action do |args, options|
     handle_global_options(options)
-    puts "TODO"
+    config = EdlCli::Config.load(options.profile)
+    client = EdlCli::Client.new(config)
+    api = EdlCli::Api.new(client)
+    save_dir = args[1].empty? ? './' : args[1]
+    if File.directory?(save_dir)
+      response = api.download(args[0])
+      filename = URI.parse(args[0]).path.split('/').last
+      filepath = File.join(save_dir, "#{filename}.zip")
+      File.write(filepath, response.to_s)
+      puts "Done"
+    else
+      puts "ERROR: save directory could not be found"
+    end
   end
 end
 
