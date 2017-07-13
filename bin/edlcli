@@ -45,7 +45,8 @@ command :list do |c|
   c.example 'custom profile usage', 'edlcli list -p NAME'
   c.action do |args, options|
     handle_global_options(options)
-    puts "TODO"
+    config = EdlCli::Config.load(options.profile)
+    EdlCli::Client.new(config)
   end
 end
 

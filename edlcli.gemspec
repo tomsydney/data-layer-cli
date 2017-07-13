@@ -20,4 +20,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'commander'
   # immutable config
   gem.add_dependency 'values'
+  # for http
+  gem.add_dependency 'rest-client'
 end
