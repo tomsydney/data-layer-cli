@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'commander/import'
+require 'edlcli'
+
+program :version, EdlCli::VERSION
+program :description, 'CLI for the eagle genomics data layer'
+
+$profile = 'default'
+$server = nil
+
+global_option('-p', '--profile NAME', 'Name of profile to use for command') do |profile|
+  $profile = profile
+end
+
+def handle_global_options(options)
+  if $profile
+    options.profile = $profile
+  end
+end
+
+command :configure do |c|
+  c.syntax  = 'edlcli configure [options]'
+  c.summary = 'Configure an EDL connection profile'
+  c.description = 'Configure an EDL connection. If this command is run with no profile option "default" profile is used'
+  c.example 'default usage', 'edlcli configure'
+  c.example 'custom profile usage', 'edlcli configure -p NAME'
+  c.action do |args, options|
+    handle_global_options(options)
+    puts "TODO"
+  end
+end
+
+command :list do |c|
+  c.syntax  = 'edlcli list [options]'
+  c.summary = 'List all datapackages from EDL instance'
+  c.example 'default usage', 'edlcli list'
+  c.example 'custom profile usage', 'edlcli list -p NAME'
+  c.action do |args, options|
+    handle_global_options(options)
+    puts "TODO"
+  end
+end
+
+command :download do |c|
+  c.syntax  = 'edlcli download DATAPACKAGE_ID [options]'
+  c.summary = 'Download a datapackage from an EDL instance'
+  c.example 'default usage', 'edlcli download DATAPACKAGE_ID'
+  c.example 'custom profile usage', 'edlcli download DATAPACKAGE_ID -p NAME'
+  c.action do |args, options|
+    handle_global_options(options)
+    puts "TODO"
+  end
+end
+
+command :upload do |c|
+  c.syntax  = 'edlcli upload DATAPACKAGE [options]'
+  c.summary = 'Upload a datapackage to an EDL instance'
+  c.example 'default usage', 'edlcli upload DATAPACKAGE'
+  c.example 'custom profile usage', 'edlcli upload DATAPACKAGE -p NAME'
+  c.action do |args, options|
+    handle_global_options(options)
+    puts "TODO"
+  end
+end
+
