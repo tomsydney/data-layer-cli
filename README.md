@@ -50,3 +50,13 @@ to dowload a specific package
 #### Upload Datapackages [WIP]
 `edcli upload PACKAGE_PATH`
 this command only accepts `.zip` or `.json` files according to the datapackage standard.
+
+
+## Development
+
+### TODOs
+
+- Improve test coverage
+- Continious integration
+- extract API wrapper to separate repo
+
