@@ -46,7 +46,9 @@ command :list do |c|
   c.action do |args, options|
     handle_global_options(options)
     config = EdlCli::Config.load(options.profile)
-    EdlCli::Client.new(config)
+    client = EdlCli::Client.new(config)
+    api = EdlCli::Api.new(client)
+    api.list
   end
 end
 
