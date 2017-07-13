@@ -5,8 +5,12 @@ module EdlCli
       @client = client
     end
 
+    def raml
+      call(:get, '/raml')
+    end
+
     def list
-      client.request(:get, '/data-packages')
+      call(:get, '/data-packages')
     end
 
     def download(package_url)
@@ -38,5 +42,10 @@ module EdlCli
       raise "work in progresss"
     end
 
+    def call(action, path, payload = {})
+      JSON.parse(
+        @client.request(action, path, payload)
+      )
+    end
   end
 end

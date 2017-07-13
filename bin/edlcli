@@ -3,6 +3,7 @@
 require 'rubygems'
 require 'commander/import'
 require 'edlcli'
+require 'pp'
 
 program :version, EdlCli::VERSION
 program :description, 'CLI for the eagle genomics data layer'
@@ -48,7 +49,8 @@ command :list do |c|
     config = EdlCli::Config.load(options.profile)
     client = EdlCli::Client.new(config)
     api = EdlCli::Api.new(client)
-    api.list
+    response = api.list
+    pp response.fetch("packages")
   end
 end
 

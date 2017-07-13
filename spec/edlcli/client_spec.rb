@@ -4,7 +4,8 @@ module EdlCli
   describe Client do
     config = Config.with({name: "foo", url: "A", id: "B", secret: "C"})
     headers = { content_type: :json, accept: :json}
-    endpoint = 'https://eaglegenomics.eu.auth0.com/oauth/token' # this smells, abstract to confi
+    # this smells, abstract to config
+    endpoint = 'https://eaglegenomics.eu.auth0.com/oauth/token'
     payload = {
       client_id: config.id,
       client_secret: config.secret,

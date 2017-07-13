@@ -28,12 +28,17 @@ module EdlCli
 
     private
 
-    def headers
-      {Authorization: @token}
+    def headers(content_type = :json)
+      {
+        Authorization: @token,
+        content_type: content_type
+      }
     end
 
     def get(path)
-      RestClient.get(@uri.merge(path), headers)
+      # note that merge will also merge two full URIs
+      # e.g. https://foo.com/.merge(http://foo.net/path) => http://foo.net/path
+      RestClient.get(@uri.merge(path).to_s, headers)
     end
 
     def post(path, payload)
