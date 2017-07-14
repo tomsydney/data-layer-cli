@@ -1,6 +1,6 @@
 require 'values'
 
-module EdlCli
+module EagleCli
   class Config < Value.new(:name, :url, :id, :secret)
 
     def self.default
@@ -8,7 +8,7 @@ module EdlCli
     end
 
     def self.load(profile_name)
-      persisted = EdlCli::ConfigFile.read(profile_name)
+      persisted = EagleCli::ConfigFile.read(profile_name)
       if persisted.empty?
         new(profile_name, '', '', '')
       else
@@ -17,7 +17,7 @@ module EdlCli
     end
 
     def save
-      EdlCli::ConfigFile.write(self.serialize)
+      EagleCli::ConfigFile.write(self.serialize)
     end
 
     def valid?

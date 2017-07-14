@@ -2,7 +2,7 @@ require 'yaml'
 require 'fileutils'
 require 'byebug'
 
-module EdlCli
+module EagleCli
   class ConfigFile
 
     def initialize
@@ -31,7 +31,7 @@ module EdlCli
     end
 
     def directory
-      File.join(Dir.home, '.edlcli')
+      File.join(Dir.home, '.eagle_cli')
     end
 
     def path
@@ -43,7 +43,7 @@ module EdlCli
     def ensure_config_file
       ensure_config_dir
       unless File.exist?(path)
-        write(EdlCli::Config.default.serialize, true)
+        write(EagleCli::Config.default.serialize, true)
       end
     end
 

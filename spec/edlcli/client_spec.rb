@@ -1,6 +1,6 @@
 require 'helper'
 
-module EdlCli
+module EagleCli
   describe Client do
     config = Config.with({name: "foo", url: "A", id: "B", secret: "C"})
     headers = { content_type: :json, accept: :json}

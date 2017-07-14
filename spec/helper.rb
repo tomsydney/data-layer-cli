@@ -1,3 +1,3 @@
 require 'rspec'
 require 'byebug'
-require 'edlcli'
+require 'eagle_cli'

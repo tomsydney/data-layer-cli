@@ -1,7 +1,7 @@
-# Eagle data layer CLI tool
-The Eagle data layer Command Line Interface (CLI) is a tool for interacting with the Eagle Data layer instances from the command line / shell of various operating systems. Hereforth refered to as **edlcli**
+# Eagle CLI
+The Eagle Genomics Command Line Interface (CLI) is a tool for interacting with the different Eagle APIs and instances from the command line / shell of various operating systems. Hereforth refered to as eagle_cli
 
-It is built with Ruby. The distribution model is to be decided and the tool is still very much a work in progress
+It is written in Ruby. The tool is still very much a work in progress
 
 ### Testing
 
@@ -21,34 +21,33 @@ cd data-layer-cli
 ##### install dependencies, build and install gem
 ```
 bundler install
-gem build edlcli.gemspec
-gem install edlcli-1.0.0.gem
+gem build eagle_cli.gemspec
+gem install eagle_cli-0.0.1.gem
 ```
 
 ### Usage
-You will be asked to enter your EDL credentials the first time you run a command; after the first time, credentials will be saved to ~/.edlcli for future use.
+You will be asked to enter your Eagle Instance credentials the first time you run a command; after the first time, credentials will be saved to ~/.eagle_cli for future use.
 It’s generally a good idea to login and add your credentials immediately after installing edlcli so that you can use it.
 
 ```
-edlcli configure
-Enter your EDL credentials for defualt profile
-edl_url: https://example.eagle-core.com/
-client_id: *****************
-secret: *****************
-Thank you
+eagle_cli configure
+Enter your credentials for default profile
+Instance url: https://demo.example.com/
+Client Id: *****************
+Client Secret: *****************
 ```
 You are now ready to execute your first command
 
 #### List Datapackages
-`edlcli list`
+`eagle_cli list`
 to list all available datapackages
 
 #### Download Datapackages
-`edcli download PACKAGE_URL DOWNLOAD_DIR`
+`eagle_cli download PACKAGE_URL DOWNLOAD_DIR`
 to dowload a specific package
 
 #### Upload Datapackages [WIP]
-`edcli upload PACKAGE_PATH`
+`eagle_cli upload PACKAGE_PATH`
 this command only accepts `.zip` or `.json` files according to the datapackage standard.
 
 

@@ -1,6 +1,6 @@
 require 'helper'
 
-module EdlCli
+module EagleCli
   describe Config do
     describe ".serialize" do
       it "returns a config hash scoped by profile name" do

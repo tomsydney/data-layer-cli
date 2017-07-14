@@ -1,6 +1,6 @@
 require 'helper'
 
-module EdlCli
+module EagleCli
   describe ConfigFile do
     describe ".read" do
       context "when profile exsists" do

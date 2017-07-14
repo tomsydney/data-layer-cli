@@ -1,4 +1,4 @@
-module EdlCli
+module EagleCli
   class Api
 
     def initialize(client)

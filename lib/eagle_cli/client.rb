@@ -2,7 +2,7 @@ require 'rest_client'
 require 'uri'
 require 'json'
 
-module EdlCli
+module EagleCli
   class Client
 
     def initialize(config)
