@@ -56,8 +56,8 @@ end
 command :download do |c|
   c.syntax  = 'eagle_cli download DATAPACKAGE_URL [options]'
   c.summary = 'Download a datapackage from an instance'
-  c.example 'default usage', 'eagle_cli download DATAPACKAGE_URL'
-  c.example 'custom profile usage', 'eagle_cli download DATAPACKAGE_URL -p NAME'
+  c.example 'default usage', 'eagle_cli download DATAPACKAGE_URL SAVE_DIR'
+  c.example 'custom profile usage', 'eagle_cli download DATAPACKAGE_URL SAVE_DIR -p NAME'
   c.action do |args, options|
     handle_global_options(options)
     config = EagleCli::Config.load(options.profile)
@@ -69,7 +69,7 @@ command :download do |c|
       filename = URI.parse(args[0]).path.split('/').last
       filepath = File.join(save_dir, "#{filename}.zip")
       File.write(filepath, response.to_s)
-      puts "Done. Package saved to #{filepath}.zip"
+      puts "Done. Package saved to #{filepath}"
     else
       puts "ERROR: save directory could not be found"
     end

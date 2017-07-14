@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    edlcli (1.0.0)
+    eagle_cli (0.0.1)
       commander
       rest-client
       values
@@ -49,7 +49,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  edlcli!
+  eagle_cli!
   rspec
 
 BUNDLED WITH

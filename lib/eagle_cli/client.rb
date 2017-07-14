@@ -42,7 +42,11 @@ module EagleCli
     end
 
     def post(path, payload, content_type)
-      RestClient.post(@uri.merge(path).to_s, payload, headers(content_type))
+      begin
+        RestClient.post(@uri.merge(path).to_s, payload, headers(content_type))
+      rescue RestClient::InternalServerError => e
+        puts e.message
+      end
     end
 
     def new_auth0_token
