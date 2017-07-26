@@ -44,13 +44,13 @@ module EagleCli
     def post(path, payload, content_type)
       begin
         RestClient.post(@uri.merge(path).to_s, payload, headers(content_type))
+
       rescue RestClient::InternalServerError => e
         puts e.message
       end
     end
 
     def new_auth0_token
-      auth0_endpoint = 'https://eaglegenomics.eu.auth0.com/oauth/token'
       payload = {
         client_id: @config.id,
         client_secret: @config.secret,
@@ -61,8 +61,9 @@ module EagleCli
         content_type: :json,
         accept: :json
       }
+      token_url = "#{@config.url}/authentication/token"
       begin
-        response = RestClient.post(auth0_endpoint, payload, head)
+        response = RestClient.post(token_url, payload, head)
         if response.code == 200
           body = JSON.parse(response.body)
           return [body["token_type"], body["access_token"]].join(' ')

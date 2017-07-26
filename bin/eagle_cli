@@ -23,8 +23,8 @@ end
 
 command :configure do |c|
   c.syntax  = 'eagle_cli configure [options]'
-  c.summary = 'Configure an EDL connection profile'
-  c.description = 'Configure an EDL connection. If this command is run with no profile option "default" profile is used'
+  c.summary = 'Configure an Eagle CLI connection profile'
+  c.description = 'Configure an Eagle CLI connection. If this command is run with no profile option "default" profile is used'
   c.example 'default usage', 'eagle_cli configure'
   c.example 'custom profile usage', 'eagle_cli configure -p NAME'
   c.action do |args, options|
@@ -47,8 +47,8 @@ command :list do |c|
     handle_global_options(options)
     config = EagleCli::Config.load(options.profile)
     client = EagleCli::Client.new(config)
-    api = EagleCli::Api.new(client)
-    response = api.list
+    data_layer = EagleCli::Api::DataLayer.new(client)
+    response = data_layer.list
     pp response.fetch("packages")
   end
 end
@@ -62,10 +62,10 @@ command :download do |c|
     handle_global_options(options)
     config = EagleCli::Config.load(options.profile)
     client = EagleCli::Client.new(config)
-    api = EagleCli::Api.new(client)
+    data_layer = EagleCli::Api::DataLayer.new(client)
     save_dir = args[1].nil? ? './' : args[1]
     if File.directory?(save_dir)
-      response = api.download(args[0])
+      response = data_layer.download(args[0])
       filename = URI.parse(args[0]).path.split('/').last
       filepath = File.join(save_dir, "#{filename}.zip")
       File.write(filepath, response.to_s)
@@ -85,9 +85,9 @@ command :upload do |c|
     handle_global_options(options)
     config = EagleCli::Config.load(options.profile)
     client = EagleCli::Client.new(config)
-    api = EagleCli::Api.new(client)
+    data_layer = EagleCli::Api::DataLayer.new(client)
     if File.exist?(args[0])
-      response = api.upload(args[0],File.extname(args[0]))
+      response = data_layer.upload(args[0],File.extname(args[0]))
       package_uri = JSON.parse(response.body).fetch("resource")
       puts "Done. Package uploaded to #{package_uri}"
     else
