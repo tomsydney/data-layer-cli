@@ -31,17 +31,17 @@ Returns the bearer token to use for subsequent requests to any module
   **Required:**
 
   ```json
-  {
-    client_id=[string],
-    client_secret=[string],
-    audience=[string],
-    grant_type=[string]
+	{
+		"client_id":"...",
+		"client_secret"="...",
+		"audience":"Instance_url",
+		"grant_type":"client_credentials"
   }
   ```
 
 * **Success Response**
 
-  * **Code:** 200 Ok
+  * **Code:** 200 Ok  
   	 **Content:**
 
   ```json
@@ -55,7 +55,7 @@ Returns the bearer token to use for subsequent requests to any module
 
 * **Error Response:**
 
-  * **Code:** 401 Unauthorized
+  * **Code:** 401 Unauthorized  
     **Content:**
 
     ```json

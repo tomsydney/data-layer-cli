@@ -151,19 +151,11 @@ Upload a datapackage to the data layer, only json and zip are allowed
 
 * **Headers:**
 
-  When JSON:
-  
-  ```
-  Authorization: 'Bearer XYZ.ASD...'
-  Content-Type: application/json
-  ```
-  
-  When Zip:
+  `Authorization: 'Bearer XYZ.ASD...'`
 
-  ```
-  Authorization: 'Bearer XYZ.ASD...'
-  Content-Type: application/zip
-  ```
+  JSON: `Content-Type: application/json`
+
+  ZIP:	 `Content-Type: application/zip`
 
 * **URL Params**
 
@@ -171,12 +163,9 @@ Upload a datapackage to the data layer, only json and zip are allowed
 
 * **Data Params**
 
-  **JSON**
-
-  the complete body of the datapackage.json file
+  **application/json:** the complete body of the datapackage.json file
   
-  **ZIP**
-  
+  **application/zip:** The binary content of zip file
 
 * **Success Response:**
 
