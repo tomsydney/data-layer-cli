@@ -33,7 +33,7 @@ Returns the bearer token to use for subsequent requests to any module
   ```json
 	{
 		"client_id":"...",
-		"client_secret"="...",
+		"client_secret":"...",
 		"audience":"Instance_url",
 		"grant_type":"client_credentials"
   }
