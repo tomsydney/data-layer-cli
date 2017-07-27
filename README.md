@@ -3,6 +3,11 @@ The Eagle Genomics Command Line Interface (CLI) is a tool for interacting with t
 
 It is written in Ruby. The tool is still very much a work in progress.
 
+### API Docs
+
+for the moment we've included API docs in this repository
+[API docs](docs/Readme.md)
+
 ### Testing
 
 #### prerequisites
