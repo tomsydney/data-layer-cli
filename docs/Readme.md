@@ -2,7 +2,7 @@
 modules:
 
 * [Authentication](#authentication)
-* [Data Layer](docs/data-layer/api.md)
+* [Data Layer](data-layer/api.md)
 
 ## Authentication
 Returns the bearer token to use for subsequent requests to any module
