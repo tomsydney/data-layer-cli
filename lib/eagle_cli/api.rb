@@ -25,7 +25,7 @@ module EagleCli
       def upload(package, format)
         case format
         when '.zip'
-          content_type = 'application/abc'
+          content_type = 'application/zip'
           payload = File.open(package, 'r')
         when '.json'
           content_type = :json
