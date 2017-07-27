@@ -1,43 +1,49 @@
 module EagleCli
-  class Api
+  module Api
+    class DataLayer
 
-    def initialize(client)
-      @client = client
-    end
-
-    def raml
-      call(:get, '/raml')
-    end
-
-    def list
-      call(:get, '/data-packages')
-    end
-
-    def download(package_url)
-      # we expect to have the fully qualified URL here.
-      @client.request(:get, package_url)
-    end
-
-    def upload(package, format)
-      case format
-      when '.zip'
-        content_type = 'application/zip'
-        payload = File.open(package, 'r')
-      when '.json'
-        content_type = :json
-        payload = File.read(package)
-      else
-        raise 'invalid file format'
+      def initialize(client)
+        @base = '/data-layer/v1'
+        @client = client
       end
-      @client.request(:post, '/data-packages', payload, content_type)
-    end
 
-    private
+      # Currently unavaiable
+      #def raml
+      #  call(:get, '/raml')
+      #end
 
-    def call(action, path, payload = {})
-      JSON.parse(
-        @client.request(action, path, payload)
-      )
+      def list
+        call(:get, '/data-packages')
+      end
+
+      def download(package_url)
+        # we expect to have the fully qualified URL here.
+        # TODO: also allow for just UUID
+        @client.request(:get, package_url)
+      end
+
+      def upload(package, format)
+        case format
+        when '.zip'
+          content_type = 'application/abc'
+          payload = File.open(package, 'r')
+        when '.json'
+          content_type = :json
+          payload = File.read(package)
+        else
+          raise 'invalid file format'
+        end
+        @client.request(:post, "#{@base}/data-packages", payload, content_type)
+      end
+
+      private
+
+      def call(action, path, payload = {})
+        path = @base + path
+        JSON.parse(
+          @client.request(action, path, payload)
+        )
+      end
     end
   end
 end
