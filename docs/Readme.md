@@ -1,8 +1,13 @@
-# Eagle API docs
+# Eagle API v2 docs
 modules:
 
 * [Authentication](#authentication)
 * [Data Layer](data-layer/api.md)
+
+**Examples:**
+
+* [Investigations](investigation.md)
+* [Studies](study.md)
 
 ## Authentication
 Returns the bearer token to use for subsequent requests to any module
