@@ -115,12 +115,12 @@ full details: [list data-package](data-layer/api.md##list-datapackages)
 [
   {
     "id":"HTTPS://SERVER/data-layer/v1/studies/:UUID",
-	 "title":"Study X"
+	 "title":"Study X",
 	 "kind":"study"
   },
   {
     "id":"HTTPS://SERVER/data-layer/v1/studies/:UUID",
-	 "title":"Study Y"
+	 "title":"Study Y",
 	 "kind":"study"
   }
 ]
