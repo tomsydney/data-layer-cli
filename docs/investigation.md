@@ -18,6 +18,8 @@ full details: [upload data-package](data-layer/api.md##upload-datapackage)
 
   `/data-layer/v1/investigations`
 
+Assuming this also needs authentication and content headers?
+
 * **Datapackage schema:**
 
 ```json
@@ -55,6 +57,9 @@ full details: [upload data-package](data-layer/api.md##list-datapackages)
 * **URL:**
 
   `/data-layer/v1/investigations`
+  
+  
+ Assuming this also needs authentication and content headers?
 
 * **Success Response:**
 
