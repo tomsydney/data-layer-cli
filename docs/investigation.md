@@ -65,19 +65,19 @@ full details: [upload data-package](data-layer/api.md##list-datapackages)
 [
   {
     "id":"HTTPS://SERVER/data-layer/v1/investigations/:UUID",
-	 "title":"Investigation A",
-	 "resources":[
-	 	{
-	 		"id":"HTTPS://SERVER/data-layer/v1/studies/:UUID",
-	 		"title":"Study X",
-	 		"kind":"study"
-	 	},
-	 ]
+    "title":"Investigation A",
+    "resources":[
+      {
+        "id":"HTTPS://SERVER/data-layer/v1/studies/:UUID",
+        "title":"Study X",
+	"kind":"study"
+      },
+    ]
   },
   {
     "id":"HTTPS://SERVER/data-layer/v1/investigations/:uuid",
-	 "title":"Investigation B",
-	 "resources":[]
+    "title":"Investigation B",
+    "resources":[]
   }
 ]
 ```
