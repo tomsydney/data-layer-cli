@@ -17,6 +17,8 @@ full details: [upload data-package](data-layer/api.md##upload-datapackage)
 * **URL:**
 
   /data-layer/v1/investigations/:UUID
+  
+ Assuming this also needs authentication and content headers?
 
 * **Datapackage JSON schema:**
 
@@ -105,6 +107,8 @@ full details: [list data-package](data-layer/api.md##list-datapackages)
 * **URL:**
 
   /data-layer/v1/investigations/:UUID
+  
+Assuming this also needs authentication and content headers?
 
 * **Success Response:**
 
