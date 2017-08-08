@@ -37,9 +37,9 @@ full details: [upload data-package](data-layer/api.md##upload-datapackage)
 
 ```json
 {
-	"id":"HTTPS://SERVER/data-layer/v1/investigations/:uuid",
-	"title":"Investigation A",
-	"resources":[]
+  "id":"HTTPS://SERVER/data-layer/v1/investigations/:uuid",
+  "title":"Investigation A",
+  "resources":[]
 }
 ```
 
