@@ -16,7 +16,7 @@ full details: [upload data-package](data-layer/api.md##upload-datapackage)
 
 * **URL:**
 
-  /data-layer/v1/investigations
+  `/data-layer/v1/investigations`
 
 * **Datapackage schema:**
 
@@ -54,7 +54,7 @@ full details: [upload data-package](data-layer/api.md##list-datapackages)
 
 * **URL:**
 
-  /data-layer/v1/investigations
+  `/data-layer/v1/investigations`
 
 * **Success Response:**
 
