@@ -10,7 +10,7 @@ modules:
 * [Studies](study.md)
 
 ## Authentication
-Returns the bearer token to use for subsequent requests to any module
+Returns the bearer token to use for subsequent requests to any module.
 
 * **URL:**
 
@@ -34,6 +34,8 @@ Returns the bearer token to use for subsequent requests to any module
 * **Data Params**
 
   **Required:**
+  
+  Add description of audience, grant type fields etc. eg. Instance_url: the POST url to verify authentication (https://demo.example.com/example_auth_url)
 
   ```json
 	{
@@ -43,7 +45,6 @@ Returns the bearer token to use for subsequent requests to any module
 		"grant_type":"client_credentials"
   }
   ```
-
 * **Success Response**
 
   * **Code:** 200 Ok  
