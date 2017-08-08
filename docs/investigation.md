@@ -69,7 +69,7 @@ full details: [upload data-package](data-layer/api.md##list-datapackages)
 	 "resources":[
 	 	{
 	 		"id":"HTTPS://SERVER/data-layer/v1/studies/:UUID",
-	 		"title":"Study X"
+	 		"title":"Study X",
 	 		"kind":"study"
 	 	},
 	 ]
