@@ -3,6 +3,10 @@ The Eagle Genomics Command Line Interface (CLI) is a tool for interacting with t
 
 It is written in Ruby. The tool is still very much a work in progress.
 
+
+A link to a general workflow for the API might be somewhere here. eg. what does calls to the api (with what information) need to be made to integrate their data within eaglecore. From uploading a given study into a given investigation and then downloading this data again or any analysis generated. This would be useful as a reference point for how a software package could conform around the eaglecore api. 
+
+
 ### API Docs
 
 for the moment we've included API docs in this repository
